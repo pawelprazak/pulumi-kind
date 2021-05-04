@@ -21,7 +21,7 @@ git clone https://github.com/pulumi/pulumi-tf-provider-boilerplate pulumi-xyz
 Second, replace references to `xyz` with the name of your provider:
 
 ```
-make prepare NAME=foo REPOSITORY=github.com/pulumi/pulumi-foo
+make prepare NAME=xyz REPOSITORY=github.com/pulumi/pulumi-xyz
 ```
 
 Next, list the configuration points for the provider in the area of the README.
@@ -36,7 +36,7 @@ In order to properly build the sdks, the following tools are expected:
 
 In the root of the repository, run:
 
-- `(cd provider && go get github.com/terraform-providers/terraform-provider-foo)`  (where `foo` is the name of the provider - note the parenthesis to run this in a subshell)
+- `(cd provider && go get github.com/terraform-providers/terraform-provider-xyz)`  (where `xyz` is the name of the provider - note the parenthesis to run this in a subshell)
 - `(cd provider && go mod download)`
 
 ### Build the provider:
@@ -52,17 +52,17 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/xyx
+    $ npm install @pulumi/xyz
 
 or `yarn`:
 
-    $ yarn add @pulumi/xyx
+    $ yarn add @pulumi/xyz
 
 ### Python
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_xyx
+    $ pip install pulumi_xyz
 
 ### Go
 
@@ -82,4 +82,4 @@ The following configuration points are available for the `xyz` provider:
 For detailed reference documentation, please visit [the API docs][1].
 
 
-[1]: https://www.pulumi.com/docs/reference/pkg/x/
+[1]: https://www.pulumi.com/docs/reference/pkg/xyz/
