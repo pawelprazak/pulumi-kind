@@ -46,7 +46,7 @@ func main() {
 	packageSpec.Version = version
 	versionedContents, err := json.Marshal(packageSpec)
 	if err != nil {
-		log.Fatalf("cannot reserialize schema: %v", err)
+		log.Fatalf("cannot re-serialize schema: %v", err)
 	}
 
 	err = ioutil.WriteFile("./schema.go", []byte(fmt.Sprintf(`package main
