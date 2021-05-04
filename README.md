@@ -12,16 +12,16 @@ Modify this README to describe:
 
 ## Creating a Pulumi Terraform Bridge Provider
 
-First, clone this repo with the name of the desired provider in place of `xyz`:
+First, clone this repo with the name of the desired provider in place of `kind`:
 
 ```
-git clone https://github.com/pulumi/pulumi-tf-provider-boilerplate pulumi-xyz
+git clone https://github.com/pulumi/pulumi-tf-provider-boilerplate pulumi-kind
 ```
 
-Second, replace references to `xyz` with the name of your provider:
+Second, replace references to `kind` with the name of your provider:
 
 ```
-make prepare NAME=xyz REPOSITORY=github.com/pulumi/pulumi-xyz
+make prepare NAME=kind REPOSITORY=github.com/virtuslab/pulumi-kind
 ```
 
 Next, list the configuration points for the provider in the area of the README.
@@ -36,7 +36,7 @@ In order to properly build the sdks, the following tools are expected:
 
 In the root of the repository, run:
 
-- `(cd provider && go get github.com/terraform-providers/terraform-provider-xyz)`  (where `xyz` is the name of the provider - note the parenthesis to run this in a subshell)
+- `(cd provider && go get github.com/kyma-incubator/terraform-provider-kind)`  (where `kind` is the name of the provider - note the parenthesis to run this in a subshell)
 - `(cd provider && go mod download)`
 
 ### Build the provider:
@@ -52,34 +52,32 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/xyz
+    $ npm install @pulumi/kind
 
 or `yarn`:
 
-    $ yarn add @pulumi/xyz
+    $ yarn add @pulumi/kind
 
 ### Python
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_xyz
+    $ pip install pulumi_kind
 
 ### Go
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-xyz/sdk/go/...
+    $ go get github.com/virtuslab/pulumi-kind/sdk/go/...
 
 ## Configuration
 
-The following configuration points are available for the `xyz` provider:
-
-- `xyz:apiKey` (environment: `XYZ_API_KEY`) - the API key for `xyz`
-- `xyz:region` (environment: `XYZ_REGION`) - the region in which to deploy resources
+The following configuration points are available for the `kind` provider:
+TODO
 
 ## Reference
 
 For detailed reference documentation, please visit [the API docs][1].
 
 
-[1]: https://www.pulumi.com/docs/reference/pkg/xyz/
+[1]: https://www.pulumi.com/docs/reference/pkg/kind/
