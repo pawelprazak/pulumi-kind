@@ -1,16 +1,12 @@
-# Terraform Bridge Provider Boilerplate
+# Pulumi Provider for kind
 
-This repository contains boilerplate code for building a new Pulumi provider which wraps an existing
-Terraform provider, if the existing provider uses _Go Modules_.
+The Pulumi Provider for *kind* enables [Pulumi](https://www.pulumi.com) to provision local [Kubernetes](https://kubernetes.io) 
+clusters on base of [Kubernetes IN Docker (kind)](https://github.com/kubernetes-sigs/kind).
 
-Modify this README to describe:
+## Development
+This provider is a Terraform Bridge for [terraform-provider-kind](https://github.com/kyma-incubator/terraform-provider-kind).
 
-- The type of resources the provider manages
-- Add a build status image from Travis at the top of the README
-- Update package names in the information below
-- Add any important documentation of concepts (e.g. the "serverless" components in the AWS provider).
-
-## Creating a Pulumi Terraform Bridge Provider
+### Creating a Pulumi Terraform Bridge Provider
 
 First, clone this repo with the name of the desired provider in place of `kind`:
 
@@ -26,10 +22,9 @@ make prepare NAME=kind REPOSITORY=github.com/virtuslab/pulumi-kind
 
 Next, list the configuration points for the provider in the area of the README.
 
-
 > Note: If the name of the desired Pulumi provider differs from the name of the Terraform provider, you will need to carefully distinguish between the references - see https://github.com/pulumi/pulumi-azure for an example.
 
-### Add dependencies
+#### Adding dependencies
 
 In order to properly build the sdks, the following tools are expected:
 - `pulumictl` (See the project's README for installation instructions: https://github.com/pulumi/pulumictl)
@@ -39,16 +34,25 @@ In the root of the repository, run:
 - `(cd provider && go get github.com/kyma-incubator/terraform-provider-kind)`  (where `kind` is the name of the provider - note the parenthesis to run this in a subshell)
 - `(cd provider && go mod download)`
 
-### Build the provider:
+#### Building the provider
 
 - Edit `provider/resources.go` to map each resource, and specify provider information
 - `make build_sdks`
 
+#### Testing locally
+- `make clean cleanup cleanup_local`
+- `make provider lint_provider`
+- `make install_local`
+- `make build_nodejs`
+- `make install_nodejs_sdk`
+- `make test`
+
 ## Installing
+TODO
 
 This package is available in many languages in the standard packaging formats.
 
-### Node.js (Java/TypeScript)
+### Node.js (JavaScript/TypeScript)
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
@@ -71,13 +75,11 @@ To use from Go, use `go get` to grab the latest version of the library
     $ go get github.com/virtuslab/pulumi-kind/sdk/go/...
 
 ## Configuration
-
-The following configuration points are available for the `kind` provider:
 TODO
 
 ## Reference
+TODO
 
 For detailed reference documentation, please visit [the API docs][1].
-
 
 [1]: https://www.pulumi.com/docs/reference/pkg/kind/

@@ -7,6 +7,8 @@ sdk/nodejs/node_modules
 
 **/command-output/
 
+dist/
+
 .idea/
 *.iml
 

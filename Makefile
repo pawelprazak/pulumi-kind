@@ -94,8 +94,9 @@ lint_provider:: provider # lint the provider code
 	cd provider && golangci-lint run -c ../.golangci.yml
 
 cleanup:: # cleans up the temporary directory
-	rm -r $(WORKING_DIR)/bin
+	rm -r bin
 	rm -f provider/cmd/${PROVIDER}/schema.go
+	rm -r dist
 
 help::
 	@grep '^[^.#]\+:\s\+.*#' Makefile | \
@@ -106,8 +107,6 @@ clean::
 	rm -rf sdk/{dotnet,nodejs,go,python}
 
 install_plugins::
-	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
-	pulumi plugin install resource random 2.2.0
 
 install_dotnet_sdk::
 	mkdir -p $(WORKING_DIR)/nuget
@@ -122,6 +121,22 @@ install_nodejs_sdk::
 
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
+install_prerelease:: # FIXME
+	pulumi plugin install resource kind $(shell bin/pulumi-resource-kind -version) --server file://$(WORKING_DIR)/dist
+
+install_local::
+	mkdir -p $(HOME)/.pulumi/plugins/resource-kind-v$(shell bin/pulumi-resource-kind -version)
+	touch $(HOME)/.pulumi/plugins/resource-kind-v$(shell bin/pulumi-resource-kind -version).lock
+	cp -v bin/pulumi-resource-kind $(HOME)/.pulumi/plugins/resource-kind-v$(shell bin/pulumi-resource-kind -version)/pulumi-resource-kind
+	pulumi plugin ls | grep kind
+
+cleanup_local::
+	pulumi plugin rm resource kind --yes
+
+prerelease_snapshot:: # TODO
+	goreleaser -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --snapshot
+
 test::
+	pulumi login --local
 	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h
 
