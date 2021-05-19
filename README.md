@@ -1,5 +1,7 @@
 # Pulumi Provider for kind
 
+This is **experimental project**, for demonstration purposes, **do not use in production**.
+
 The Pulumi Provider for *kind* enables [Pulumi](https://www.pulumi.com) to provision local [Kubernetes](https://kubernetes.io) 
 clusters on base of [Kubernetes IN Docker (kind)](https://github.com/kubernetes-sigs/kind).
 
