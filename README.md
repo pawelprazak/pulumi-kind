@@ -58,7 +58,10 @@ make release
 ```
 
 ## Installing
-TODO
+To install the plugin, it has to be done manually ([pulumi #13](https://github.com/pulumi/pulumi-tf-provider-boilerplate/issues/13)), e.g.:
+```bash
+pulumi plugin install resource kind v0.0.1-alpha.1621596329+ac2e0588 --server https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1621596329+ac2e0588
+```
 
 This package is available in many languages in the standard packaging formats.
 
