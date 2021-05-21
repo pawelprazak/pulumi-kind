@@ -52,10 +52,9 @@ In the root of the repository, run:
 ### Release
 ```bash
 export GITHUB_TOKEN="..."
-git tag -a v0.0.1 -m "Tag message"
-git push origin v0.0.1
-goreleaser release --snapshot --skip-publish --rm-dist --config .goreleaser.prerelease.yml
-goreleaser release
+make tag
+make prerelease_snapshot
+make release
 ```
 
 ## Installing
