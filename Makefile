@@ -133,10 +133,19 @@ install_local::
 cleanup_local::
 	pulumi plugin rm resource kind --yes
 
-prerelease_snapshot:: # TODO
-	goreleaser -p 3 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --snapshot
-
 test::
 	pulumi login --local
 	cd examples && go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h
 
+tag::
+	git tag -a v$(VERSION)
+	git push origin v$(VERSION)
+
+prerelease_snapshot::
+	goreleaser -p 3 --rm-dist --snapshot --config .goreleaser.prerelease.yml
+
+release_snapshot::
+	goreleaser -p 3 --rm-dist --snapshot
+
+release::
+	goreleaser -p 3 --rm-dist
