@@ -42,12 +42,14 @@ In the root of the repository, run:
 - `make build_sdks`
 
 #### Testing locally
-- `make clean cleanup cleanup_local`
-- `make provider lint_provider`
-- `make install_local`
-- `make build_nodejs`
-- `make install_nodejs_sdk`
-- `make test`
+```bash
+make clean cleanup cleanup_local
+make provider lint_provider
+make install_local
+make build_nodejs
+make install_nodejs_sdk
+make test
+```
 
 ### Release
 ```bash
@@ -58,7 +60,7 @@ make release
 ```
 
 ## Installing
-To install the plugin, it has to be done manually ([pulumi #13](https://github.com/pulumi/pulumi-tf-provider-boilerplate/issues/13)), e.g.:
+To manually install the plugin ([pulumi #13](https://github.com/pulumi/pulumi-tf-provider-boilerplate/issues/13)), e.g.:
 ```bash
 pulumi plugin install resource kind v0.0.1-alpha.1621596329+ac2e0588 --server https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1621596329+ac2e0588
 ```
@@ -76,10 +78,16 @@ or `yarn`:
     $ yarn add @pawelprazak/pulumi-kind
 
 ### Python
+> Not published. I don't have a present need for this.
+> If you do please open a pull request with instructions for how to publish a PIP package.
 
 To use from Python, install using `pip`:
 
     $ pip install pulumi_kind
+
+### .NET
+> Not published. I don't have a present need for this. 
+> If you do please open a pull request with instructions for how to publish a .NET package.
 
 ### Go
 

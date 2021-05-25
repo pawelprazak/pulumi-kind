@@ -3,7 +3,7 @@ PROJECT_NAME := kind Package
 PACK             := kind
 ORG              := pawelprazak
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
-NODE_MODULE_NAME := @pulumi/${PACK}
+NODE_MODULE_NAME := @${ORG}/pulumi-${PACK}
 TF_NAME          := ${PACK}
 PROVIDER_PATH    := provider
 VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
@@ -94,9 +94,9 @@ lint_provider:: provider # lint the provider code
 	cd provider && golangci-lint run -c ../.golangci.yml
 
 cleanup:: # cleans up the temporary directory
-	rm -r bin
+	rm -rf bin
 	rm -f provider/cmd/${PROVIDER}/schema.go
-	rm -r dist
+	rm -rf dist
 
 help::
 	@grep '^[^.#]\+:\s\+.*#' Makefile | \
@@ -121,8 +121,8 @@ install_nodejs_sdk::
 
 install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 
-install_prerelease:: # FIXME
-	pulumi plugin install resource kind $(shell bin/pulumi-resource-kind -version) --server file://$(WORKING_DIR)/dist
+manual_provider_install::
+	pulumi plugin install resource kind $(shell bin/pulumi-resource-kind -version) --server "$(PROJECT)/releases/download"
 
 install_local::
 	mkdir -p $(HOME)/.pulumi/plugins/resource-kind-v$(shell bin/pulumi-resource-kind -version)

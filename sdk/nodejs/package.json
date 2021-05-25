@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/kind",
+    "name": "@pawelprazak/pulumi-kind",
     "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing kind resources.",
     "keywords": [
@@ -20,6 +20,7 @@
         "@types/node": "^10.0.0"
     },
     "pulumi": {
-        "resource": true
+        "resource": true,
+        "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1621935158+cc1af481.dirty"
     }
 }

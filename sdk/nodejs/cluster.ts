@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as kind from "@pulumi/kind";
+ * import * as kind from "@pawelprazak/pulumi-kind";
  *
  * // Create a kind cluster of the name "test-cluster" with default kubernetes
  * // version specified in kind
@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as kind from "@pulumi/kind";
+ * import * as kind from "@pawelprazak/pulumi-kind";
  *
  * // Create a cluster with kind of the name "test-cluster" with kubernetes version v1.16.1
  * const defaultCluster = new kind.Cluster("default", {
@@ -39,7 +39,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as kind from "@pulumi/kind";
+ * import * as kind from "@pawelprazak/pulumi-kind";
  *
  * // creating a cluster with kind of the name "test-cluster" with kubernetes version v1.18.4 and two nodes
  * const defaultCluster = new kind.Cluster("default", {
@@ -61,7 +61,7 @@ import * as utilities from "./utilities";
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
- * import * as kind from "@pulumi/kind";
+ * import * as kind from "@pawelprazak/pulumi-kind";
  *
  * // Create a cluster with patches applied to the containerd config
  * const defaultCluster = new kind.Cluster("default", {
