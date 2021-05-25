@@ -35,6 +35,8 @@ const (
 	mainPkg = "kind"
 	// modules:
 	mainMod = "index" // the main module
+	// the URL used to download the plugin
+	customPluginDownloadPrefix = "https://github.com/pawelprazak/pulumi-kind/releases/download"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -92,6 +94,10 @@ func refProviderLicense(license tfbridge.TFProviderLicense) *tfbridge.TFProvider
 	return &license
 }
 
+func customPluginDownloadURL() string {
+	return fmt.Sprintf("%s/%s", customPluginDownloadPrefix, version.Version)
+}
+
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
@@ -116,7 +122,8 @@ func Provider() tfbridge.ProviderInfo {
 			// needed only if you wish to override types or other default options.
 			"kind_cluster": {Tok: makeResource(mainMod, "Cluster")},
 		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{},
+		PluginDownloadURL: customPluginDownloadURL(),
+		DataSources:       map[string]*tfbridge.DataSourceInfo{},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
