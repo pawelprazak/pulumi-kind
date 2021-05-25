@@ -1,7 +1,7 @@
 PROJECT_NAME := kind Package
 
 PACK             := kind
-ORG              := virtuslab
+ORG              := pawelprazak
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}

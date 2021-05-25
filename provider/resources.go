@@ -21,12 +21,12 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/kyma-incubator/terraform-provider-kind/kind"
+	"github.com/pawelprazak/pulumi-kind/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/virtuslab/pulumi-kind/provider/pkg/version"
 )
 
 // all of the token components used below.
@@ -111,7 +111,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:             []string{"pulumi", "kind"},
 		License:              "Apache-2.0",
 		Homepage:             "https://pulumi.io",
-		Repository:           "https://github.com/virtuslab/pulumi-kind",
+		Repository:           "https://github.com/pawelprazak/pulumi-kind",
 		GitHubOrg:            "kyma-incubator",
 		TFProviderLicense:    refProviderLicense(tfbridge.Apache20LicenseType),
 		Config:               map[string]*tfbridge.SchemaInfo{},
@@ -146,7 +146,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/virtuslab/pulumi-%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/pawelprazak/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,

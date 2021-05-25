@@ -19,7 +19,7 @@ git clone https://github.com/pulumi/pulumi-tf-provider-boilerplate pulumi-kind
 Second, replace references to `kind` with the name of your provider:
 
 ```
-make prepare NAME=kind REPOSITORY=github.com/virtuslab/pulumi-kind
+make prepare NAME=kind REPOSITORY=github.com/pawelprazak/pulumi-kind
 ```
 
 Next, list the configuration points for the provider in the area of the README.
@@ -69,11 +69,11 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/kind
+    $ npm install @pawelprazak/pulumi-kind
 
 or `yarn`:
 
-    $ yarn add @pulumi/kind
+    $ yarn add @pawelprazak/pulumi-kind
 
 ### Python
 
@@ -85,7 +85,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/virtuslab/pulumi-kind/sdk/go/...
+    $ go get github.com/pawelprazak/pulumi-kind/sdk/go/...
 
 ## Configuration
 TODO

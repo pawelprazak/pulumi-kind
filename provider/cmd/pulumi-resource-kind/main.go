@@ -17,9 +17,9 @@
 package main
 
 import (
+	kind "github.com/pawelprazak/pulumi-kind/provider"
+	"github.com/pawelprazak/pulumi-kind/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	kind "github.com/virtuslab/pulumi-kind/provider"
-	"github.com/virtuslab/pulumi-kind/provider/pkg/version"
 )
 
 func main() {

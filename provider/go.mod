@@ -1,4 +1,4 @@
-module github.com/virtuslab/pulumi-kind/provider
+module github.com/pawelprazak/pulumi-kind/provider
 
 go 1.16
 

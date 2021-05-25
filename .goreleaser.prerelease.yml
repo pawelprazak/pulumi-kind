@@ -18,7 +18,7 @@ builds:
   - windows
   - linux
   ldflags:
-  - -X github.com/virtuslab/pulumi-kind/provider/v3/pkg/version.Version={{.Tag}}
+  - -X github.com/pawelprazak/pulumi-kind/provider/v3/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-kind/
 changelog:
   skip: true

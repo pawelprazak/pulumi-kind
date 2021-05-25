@@ -7,7 +7,7 @@
         "kind"
     ],
     "homepage": "https://pulumi.io",
-    "repository": "https://github.com/virtuslab/pulumi-kind",
+    "repository": "https://github.com/pawelprazak/pulumi-kind",
     "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"

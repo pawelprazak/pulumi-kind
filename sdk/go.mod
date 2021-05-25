@@ -1,4 +1,4 @@
-module github.com/virtuslab/pulumi-kind/sdk
+module github.com/pawelprazak/pulumi-kind/sdk
 
 go 1.16
 
