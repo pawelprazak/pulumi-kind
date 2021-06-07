@@ -46,8 +46,8 @@ In the root of the repository, run:
 make clean cleanup cleanup_local
 make provider lint_provider
 make install_local
-make build_nodejs
-make install_nodejs_sdk
+make build
+make install
 make test
 ```
 

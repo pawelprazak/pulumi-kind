@@ -12,7 +12,7 @@ class InstallPluginCommand(install):
     def run(self):
         install.run(self)
         try:
-            check_call(['pulumi', 'plugin', 'install', 'resource', 'kind', '${PLUGIN_VERSION}', '--server', 'https://github.com/pawelprazak/pulumi-kind/releases/download/0.0.1-alpha.1622644370+7aa79e0e.dirty'])
+            check_call(['pulumi', 'plugin', 'install', 'resource', 'kind', '${PLUGIN_VERSION}', '--server', 'https://github.com/pawelprazak/pulumi-kind/releases/download/0.0.1-alpha.1623148066+d780fb88.dirty'])
         except OSError as error:
             if error.errno == errno.ENOENT:
                 print("""

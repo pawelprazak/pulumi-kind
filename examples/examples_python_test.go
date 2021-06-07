@@ -12,7 +12,7 @@ import (
 func TestClusterPythonAlone(t *testing.T) {
 	test := getPyBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "clusterPy"),
+			Dir: path.Join(getCwd(t), "cluster-py"),
 		})
 
 	integration.ProgramTest(t, &test)
@@ -21,7 +21,7 @@ func TestClusterPythonAlone(t *testing.T) {
 func TestClusterPythonDeployment(t *testing.T) {
 	test := getPyBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "clusterDeploymentPy"),
+			Dir: path.Join(getCwd(t), "cluster-deployment-py"),
 		})
 
 	integration.ProgramTest(t, &test)
