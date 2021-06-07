@@ -1,0 +1,11 @@
+{
+    "name": "kind-cluster",
+    "devDependencies": {
+        "@types/node": "^10.0.0"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "pu": "^0.1.0",
+        "pulumi": "^0.0.1"
+    }
+}

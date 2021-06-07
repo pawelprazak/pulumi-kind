@@ -9,10 +9,10 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
-func TestCluster(t *testing.T) {
+func TestClusterNode(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: path.Join(getCwd(t), "cluster"),
+			Dir: path.Join(getCwd(t), "clusterNode"),
 		})
 
 	integration.ProgramTest(t, &test)

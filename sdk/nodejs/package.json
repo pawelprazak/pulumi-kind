@@ -21,6 +21,6 @@
     },
     "pulumi": {
         "resource": true,
-        "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1621950326+5de68a72.dirty"
+        "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/0.0.1-alpha.1622644370+7aa79e0e.dirty"
     }
 }
