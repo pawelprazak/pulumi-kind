@@ -125,6 +125,7 @@ func Provider() tfbridge.ProviderInfo {
 		PluginDownloadURL: customPluginDownloadURL(),
 		DataSources:       map[string]*tfbridge.DataSourceInfo{},
 		JavaScript: &tfbridge.JavaScriptInfo{
+			PackageName: "@pawelprazak/pulumi-kind",
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^3.0.0",
