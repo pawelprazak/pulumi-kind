@@ -15,6 +15,7 @@ VERSION         := $(shell pulumictl get version)
 TESTPARALLELISM := 4
 
 WORKING_DIR     := $(shell pwd)
+PULUMI_ROOT		:= /opt/pulumi
 
 OS := $(shell uname)
 EMPTY_TO_AVOID_SED :=
@@ -109,12 +110,17 @@ clean::
 install_plugins::
 
 install_dotnet_sdk::
-	mkdir -p $(WORKING_DIR)/nuget
-	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
+	mkdir -p $(PULUMI_ROOT)/nuget
+	find . -name '*.nupkg' -print -exec cp -p {} $(PULUMI_ROOT)/nuget \;
 
 install_python_sdk::
 
-install_go_sdk::
+install_go_sdk:: # adds go source files to known path and adds mod.go so the files can be imported inside other modules (we use it in tests) then use go mod replace to link these files for tests
+	mkdir -p ${PULUMI_ROOT}/kind
+	cp -f sdk/go.mod ${PULUMI_ROOT}/kind/go.mod
+	cp -rf sdk/go/kind/. ${PULUMI_ROOT}/kind/
+	(cd examples/cluster-go && go mod edit -replace github.com/pawelprazak/pulumi-kind/sdk/kind=${PULUMI_ROOT}/kind)
+	(cd examples/cluster-deployment-go && go mod edit -replace github.com/pawelprazak/pulumi-kind/sdk/kind=${PULUMI_ROOT}/kind)
 
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
