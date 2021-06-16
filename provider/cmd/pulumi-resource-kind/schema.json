@@ -9,7 +9,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`kind` Terraform Provider](https://github.com/kyma-incubator/terraform-provider-kind).",
     "repository": "https://github.com/pawelprazak/pulumi-kind",
-    "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1621950326+5de68a72.dirty",
+    "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1623052915+6e8724cc.dirty",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
@@ -273,11 +273,11 @@
                 },
                 "kubeconfig": {
                     "type": "string",
-                    "description": "Kubeconfig set after the the cluster is created.\n"
+                    "description": "The kubeconfig for the cluster after it is created\n"
                 },
                 "kubeconfigPath": {
                     "type": "string",
-                    "description": "Kubeconfig path set after the the cluster is created or by the user to override defaults.\n"
+                    "description": "kubeconfig path set after the the cluster is created or by the user to override defaults.\n"
                 },
                 "name": {
                     "type": "string",
@@ -309,7 +309,7 @@
                 },
                 "kubeconfigPath": {
                     "type": "string",
-                    "description": "Kubeconfig path set after the the cluster is created or by the user to override defaults.\n"
+                    "description": "kubeconfig path set after the the cluster is created or by the user to override defaults.\n"
                 },
                 "name": {
                     "type": "string",
@@ -349,11 +349,11 @@
                     },
                     "kubeconfig": {
                         "type": "string",
-                        "description": "Kubeconfig set after the the cluster is created.\n"
+                        "description": "The kubeconfig for the cluster after it is created\n"
                     },
                     "kubeconfigPath": {
                         "type": "string",
-                        "description": "Kubeconfig path set after the the cluster is created or by the user to override defaults.\n"
+                        "description": "kubeconfig path set after the the cluster is created or by the user to override defaults.\n"
                     },
                     "name": {
                         "type": "string",
