@@ -123,11 +123,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kindConfig!: pulumi.Output<outputs.ClusterKindConfig | undefined>;
     /**
-     * Kubeconfig set after the the cluster is created.
+     * The kubeconfig for the cluster after it is created
      */
     public /*out*/ readonly kubeconfig!: pulumi.Output<string>;
     /**
-     * Kubeconfig path set after the the cluster is created or by the user to override defaults.
+     * kubeconfig path set after the the cluster is created or by the user to override defaults.
      */
     public readonly kubeconfigPath!: pulumi.Output<string>;
     /**
@@ -211,11 +211,11 @@ export interface ClusterState {
      */
     readonly kindConfig?: pulumi.Input<inputs.ClusterKindConfig>;
     /**
-     * Kubeconfig set after the the cluster is created.
+     * The kubeconfig for the cluster after it is created
      */
     readonly kubeconfig?: pulumi.Input<string>;
     /**
-     * Kubeconfig path set after the the cluster is created or by the user to override defaults.
+     * kubeconfig path set after the the cluster is created or by the user to override defaults.
      */
     readonly kubeconfigPath?: pulumi.Input<string>;
     /**
@@ -241,7 +241,7 @@ export interface ClusterArgs {
      */
     readonly kindConfig?: pulumi.Input<inputs.ClusterKindConfig>;
     /**
-     * Kubeconfig path set after the the cluster is created or by the user to override defaults.
+     * kubeconfig path set after the the cluster is created or by the user to override defaults.
      */
     readonly kubeconfigPath?: pulumi.Input<string>;
     /**

@@ -1,0 +1,3 @@
+name: kind-cluster
+runtime: nodejs
+description: A kind cluster
