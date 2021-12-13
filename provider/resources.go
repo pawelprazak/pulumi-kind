@@ -160,6 +160,9 @@ func Provider() tfbridge.ProviderInfo {
 				"System.Collections.Immutable": "1.6.0",
 			},
 		},
+		JVM: &tfbridge.JVMInfo{
+			BasePackage: "pl.pawelprazak.pulumi.",
+		},
 	}
 
 	prov.SetAutonaming(255, "-")

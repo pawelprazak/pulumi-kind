@@ -385,6 +385,9 @@
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pawelprazak/pulumi-kind/sdk/go/kind"
         },
+        "jvm": {
+            "basePackage": "pl.pawelprazak.pulumi."
+        },
         "nodejs": {
             "compatibility": "tfbridge20",
             "dependencies": {

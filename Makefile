@@ -1,4 +1,4 @@
-PROJECT_NAME := kind Package
+PROJECT_NAME := Pulumi Kind Package
 
 PACK             := kind
 ORG              := pawelprazak
@@ -43,6 +43,10 @@ prepare::
 
 .PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
 
+ensure::
+	cd provider && go mod tidy
+	cd sdk && go mod tidy
+
 development:: install_plugins provider lint_provider build_sdks install_sdks cleanup # Build the provider & SDKs for a development environment
 
 # Required for the codegen action that runs in pulumi/pulumi and pulumi/pulumi-terraform-bridge
@@ -57,7 +61,7 @@ tfgen:: install_plugins
 provider:: tfgen install_plugins # build the provider binary
 	(cd provider && go build -a -o $(WORKING_DIR)/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" ${PROJECT}/${PROVIDER_PATH}/cmd/${PROVIDER})
 
-build_sdks:: install_plugins provider build_nodejs build_python build_go build_dotnet # build all the sdks
+build_sdks:: install_plugins provider build_nodejs build_python build_go build_jvm build_dotnet # build all the sdks
 
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs:: install_plugins tfgen # build the node sdk
@@ -87,13 +91,20 @@ build_dotnet:: install_plugins tfgen # build the dotnet sdk
 		echo "${DOTNET_VERSION}" >version.txt && \
         dotnet build /p:Version=${DOTNET_VERSION}
 
+build_jvm:: install_plugins tfgen # build the jvm sdk
+	$(WORKING_DIR)/bin/$(TFGEN) jvm --overlays provider/overlays/jvm --out sdk/jvm/
+	cd $(WORKING_DIR)/sdk/jvm && \
+		mkdir -p src/main/resources/pl/pawelprazak/pulumi/$(PACK) && \
+		echo "${VERSION}" > src/main/resources/pl/pawelprazak/pulumi/$(PACK)/version.txt && \
+		gradle -Pversion=${VERSION} build
+
 build_go:: install_plugins tfgen # build the go sdk
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
 
 lint_provider:: provider # lint the provider code
 	cd provider && golangci-lint run -c ../.golangci.yml
 
-cleanup:: # cleans up the temporary directory
+cleanup:: # cleans up the temporary directories and files
 	rm -rf bin
 	rm -f provider/cmd/${PROVIDER}/schema.go
 	rm -rf dist
@@ -104,7 +115,7 @@ help::
  	expand -t20
 
 clean::
-	rm -rf sdk/{dotnet,nodejs,go,python}
+	rm -rf sdk/{dotnet,nodejs,go,python,jvm}
 
 install_plugins::
 
@@ -116,10 +127,13 @@ install_python_sdk::
 
 install_go_sdk::
 
+install_jvm_sdk::
+	cd $(WORKING_DIR)/sdk/jvm && gradle -Pversion=${VERSION} publishToMavenLocal
+
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
-install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
+install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_jvm_sdk
 
 manual_provider_install::
 	pulumi plugin install resource kind $(shell bin/pulumi-resource-kind -version) --server "$(PROJECT)/releases/download"
@@ -131,7 +145,7 @@ install_local::
 	pulumi plugin ls | grep kind
 
 cleanup_local::
-	pulumi plugin rm resource kind --yes
+	pulumi plugin rm resource kind $(shell bin/pulumi-resource-kind -version) --yes
 
 test::
 	pulumi login --local
@@ -149,3 +163,8 @@ release_snapshot::
 
 release::
 	goreleaser -p 3 --rm-dist
+
+hack_local_deps::
+	cd provider && go mod edit -replace github.com/pulumi/pulumi/pkg/v3=${HOME}/repos/vl/pulumi/pkg
+	cd provider && go mod edit -replace github.com/pulumi/pulumi/sdk/v3=${HOME}/repos/vl/pulumi/sdk
+	cd provider && go mod edit -replace github.com/pulumi/pulumi-terraform-bridge/v3=${HOME}/repos/vl/pulumi-terraform-bridge
