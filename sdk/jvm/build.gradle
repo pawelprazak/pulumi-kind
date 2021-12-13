@@ -40,7 +40,7 @@ test {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'io.pulumi'
+            groupId = 'pl.pawelprazak.pulumi'
             artifactId = 'kind'
             version = project.version
 

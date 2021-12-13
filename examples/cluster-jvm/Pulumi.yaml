@@ -1,0 +1,3 @@
+name: kind-cluster
+runtime: jvm
+description: A kind cluster

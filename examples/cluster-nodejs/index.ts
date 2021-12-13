@@ -1,7 +1,7 @@
 // @ts-ignore because it's provided by yarn link @pawelprazak/pulumi-kind
 import * as kind from "@pawelprazak/pulumi-kind";
 
-let cluster = new kind.Cluster("pulumi-cluster", {
+let cluster = new kind.Cluster("pulumi-cluster-alone-nodejs", {
     kindConfig: {
         kind: "Cluster",
         apiVersion: "kind.x-k8s.io/v1alpha4",
