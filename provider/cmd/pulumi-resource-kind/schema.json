@@ -9,7 +9,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`kind` Terraform Provider](https://github.com/kyma-incubator/terraform-provider-kind).",
     "repository": "https://github.com/pawelprazak/pulumi-kind",
-    "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1623052915+6e8724cc.dirty",
+    "pluginDownloadURL": "https://github.com/pawelprazak/pulumi-kind/releases/download/v0.0.1-alpha.1639419293+d3a9a476.dirty",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },

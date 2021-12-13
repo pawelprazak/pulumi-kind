@@ -95,7 +95,7 @@ func refProviderLicense(license tfbridge.TFProviderLicense) *tfbridge.TFProvider
 }
 
 func customPluginDownloadURL() string {
-	return fmt.Sprintf("%s/%s", customPluginDownloadPrefix, version.Version)
+	return fmt.Sprintf("%s/v%s", customPluginDownloadPrefix, version.Version)
 }
 
 // Provider returns additional overlaid schema and metadata associated with the provider..

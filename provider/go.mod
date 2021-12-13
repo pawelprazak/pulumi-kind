@@ -15,6 +15,6 @@ require (
 
 replace (
 	github.com/pulumi/pulumi-terraform-bridge/v3 => /Users/pprazak/repos/vl/pulumi-terraform-bridge
-	github.com/pulumi/pulumi/sdk/v3 => /Users/pprazak/repos/vl/pulumi/sdk
 	github.com/pulumi/pulumi/pkg/v3 => /Users/pprazak/repos/vl/pulumi/pkg
+	github.com/pulumi/pulumi/sdk/v3 => /Users/pprazak/repos/vl/pulumi/sdk
 )
