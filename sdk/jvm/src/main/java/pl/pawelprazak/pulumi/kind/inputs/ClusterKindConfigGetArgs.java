@@ -59,9 +59,9 @@ public final class ClusterKindConfigGetArgs extends io.pulumi.resources.Resource
         Input<String> kind,
         @Nullable Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNetworkingGetArgs> networking,
         @Nullable Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeGetArgs>> nodes) {
-        this.apiVersion = Objects.requireNonNull(apiVersion);
+        this.apiVersion = apiVersion;
         this.containerdConfigPatches = containerdConfigPatches;
-        this.kind = Objects.requireNonNull(kind);
+        this.kind = kind;
         this.networking = networking;
         this.nodes = nodes;
     }
