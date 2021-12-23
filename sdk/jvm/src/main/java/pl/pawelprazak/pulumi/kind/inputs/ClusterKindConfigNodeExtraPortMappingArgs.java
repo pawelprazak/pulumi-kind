@@ -16,34 +16,34 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterKindConfigNodeExtraPortMappingArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterKindConfigNodeExtraPortMappingArgs Empty = ClusterKindConfigNodeExtraPortMappingArgs.builder().build();
+    public static final ClusterKindConfigNodeExtraPortMappingArgs Empty = new ClusterKindConfigNodeExtraPortMappingArgs();
 
     @InputImport(name="containerPort")
     private final @Nullable Input<Integer> containerPort;
 
     public Input<Integer> getContainerPort() {
-        return Input.ofNullable(this.containerPort);
+        return this.containerPort == null ? Input.empty() : this.containerPort;
     }
 
     @InputImport(name="hostPort")
     private final @Nullable Input<Integer> hostPort;
 
     public Input<Integer> getHostPort() {
-        return Input.ofNullable(this.hostPort);
+        return this.hostPort == null ? Input.empty() : this.hostPort;
     }
 
     @InputImport(name="listenAddress")
     private final @Nullable Input<String> listenAddress;
 
     public Input<String> getListenAddress() {
-        return Input.ofNullable(this.listenAddress);
+        return this.listenAddress == null ? Input.empty() : this.listenAddress;
     }
 
     @InputImport(name="protocol")
     private final @Nullable Input<String> protocol;
 
     public Input<String> getProtocol() {
-        return Input.ofNullable(this.protocol);
+        return this.protocol == null ? Input.empty() : this.protocol;
     }
 
     public ClusterKindConfigNodeExtraPortMappingArgs(
@@ -55,6 +55,13 @@ public final class ClusterKindConfigNodeExtraPortMappingArgs extends io.pulumi.r
         this.hostPort = hostPort;
         this.listenAddress = listenAddress;
         this.protocol = protocol;
+    }
+
+    private ClusterKindConfigNodeExtraPortMappingArgs() {
+        this.containerPort = Input.empty();
+        this.hostPort = Input.empty();
+        this.listenAddress = Input.empty();
+        this.protocol = Input.empty();
     }
 
     public static Builder builder() {

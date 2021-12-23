@@ -16,41 +16,41 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterArgs Empty = ClusterArgs.builder().build();
+    public static final ClusterArgs Empty = new ClusterArgs();
 
     @InputImport(name="kindConfig")
     private final @Nullable Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigArgs> kindConfig;
 
     public Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigArgs> getKindConfig() {
-        return Input.ofNullable(this.kindConfig);
+        return this.kindConfig == null ? Input.empty() : this.kindConfig;
     }
 
     @InputImport(name="kubeconfigPath")
     private final @Nullable Input<String> kubeconfigPath;
 
     public Input<String> getKubeconfigPath() {
-        return Input.ofNullable(this.kubeconfigPath);
+        return this.kubeconfigPath == null ? Input.empty() : this.kubeconfigPath;
     }
 
     @InputImport(name="name")
     private final @Nullable Input<String> name;
 
     public Input<String> getName() {
-        return Input.ofNullable(this.name);
+        return this.name == null ? Input.empty() : this.name;
     }
 
     @InputImport(name="nodeImage")
     private final @Nullable Input<String> nodeImage;
 
     public Input<String> getNodeImage() {
-        return Input.ofNullable(this.nodeImage);
+        return this.nodeImage == null ? Input.empty() : this.nodeImage;
     }
 
     @InputImport(name="waitForReady")
     private final @Nullable Input<Boolean> waitForReady;
 
     public Input<Boolean> getWaitForReady() {
-        return Input.ofNullable(this.waitForReady);
+        return this.waitForReady == null ? Input.empty() : this.waitForReady;
     }
 
     public ClusterArgs(
@@ -64,6 +64,14 @@ public final class ClusterArgs extends io.pulumi.resources.ResourceArgs {
         this.name = name;
         this.nodeImage = nodeImage;
         this.waitForReady = waitForReady;
+    }
+
+    private ClusterArgs() {
+        this.kindConfig = Input.empty();
+        this.kubeconfigPath = Input.empty();
+        this.name = Input.empty();
+        this.nodeImage = Input.empty();
+        this.waitForReady = Input.empty();
     }
 
     public static Builder builder() {

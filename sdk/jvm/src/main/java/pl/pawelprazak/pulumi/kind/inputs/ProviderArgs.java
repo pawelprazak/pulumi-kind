@@ -16,7 +16,7 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ProviderArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ProviderArgs Empty = ProviderArgs.builder().build();
+    public static final ProviderArgs Empty = new ProviderArgs();
 
     public ProviderArgs() {
     }

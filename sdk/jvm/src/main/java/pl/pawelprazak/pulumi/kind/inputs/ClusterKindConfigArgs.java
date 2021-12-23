@@ -16,7 +16,7 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterKindConfigArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterKindConfigArgs Empty = ClusterKindConfigArgs.builder().build();
+    public static final ClusterKindConfigArgs Empty = new ClusterKindConfigArgs();
 
     @InputImport(name="apiVersion", required=true)
     private final Input<String> apiVersion;
@@ -29,7 +29,7 @@ public final class ClusterKindConfigArgs extends io.pulumi.resources.ResourceArg
     private final @Nullable Input<List<String>> containerdConfigPatches;
 
     public Input<List<String>> getContainerdConfigPatches() {
-        return Input.ofNullable(this.containerdConfigPatches);
+        return this.containerdConfigPatches == null ? Input.empty() : this.containerdConfigPatches;
     }
 
     @InputImport(name="kind", required=true)
@@ -43,14 +43,14 @@ public final class ClusterKindConfigArgs extends io.pulumi.resources.ResourceArg
     private final @Nullable Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNetworkingArgs> networking;
 
     public Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNetworkingArgs> getNetworking() {
-        return Input.ofNullable(this.networking);
+        return this.networking == null ? Input.empty() : this.networking;
     }
 
     @InputImport(name="nodes")
     private final @Nullable Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeArgs>> nodes;
 
     public Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeArgs>> getNodes() {
-        return Input.ofNullable(this.nodes);
+        return this.nodes == null ? Input.empty() : this.nodes;
     }
 
     public ClusterKindConfigArgs(
@@ -59,11 +59,19 @@ public final class ClusterKindConfigArgs extends io.pulumi.resources.ResourceArg
         Input<String> kind,
         @Nullable Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNetworkingArgs> networking,
         @Nullable Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeArgs>> nodes) {
-        this.apiVersion = apiVersion;
+        this.apiVersion = Objects.requireNonNull(apiVersion, "expected parameter 'apiVersion' to be non-null");
         this.containerdConfigPatches = containerdConfigPatches;
-        this.kind = kind;
+        this.kind = Objects.requireNonNull(kind, "expected parameter 'kind' to be non-null");
         this.networking = networking;
         this.nodes = nodes;
+    }
+
+    private ClusterKindConfigArgs() {
+        this.apiVersion = Input.empty();
+        this.containerdConfigPatches = Input.empty();
+        this.kind = Input.empty();
+        this.networking = Input.empty();
+        this.nodes = Input.empty();
     }
 
     public static Builder builder() {

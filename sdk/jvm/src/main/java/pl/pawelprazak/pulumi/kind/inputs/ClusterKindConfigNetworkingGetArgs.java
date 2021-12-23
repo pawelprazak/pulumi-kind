@@ -16,55 +16,55 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterKindConfigNetworkingGetArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterKindConfigNetworkingGetArgs Empty = ClusterKindConfigNetworkingGetArgs.builder().build();
+    public static final ClusterKindConfigNetworkingGetArgs Empty = new ClusterKindConfigNetworkingGetArgs();
 
     @InputImport(name="apiServerAddress")
     private final @Nullable Input<String> apiServerAddress;
 
     public Input<String> getApiServerAddress() {
-        return Input.ofNullable(this.apiServerAddress);
+        return this.apiServerAddress == null ? Input.empty() : this.apiServerAddress;
     }
 
     @InputImport(name="apiServerPort")
     private final @Nullable Input<Integer> apiServerPort;
 
     public Input<Integer> getApiServerPort() {
-        return Input.ofNullable(this.apiServerPort);
+        return this.apiServerPort == null ? Input.empty() : this.apiServerPort;
     }
 
     @InputImport(name="disableDefaultCni")
     private final @Nullable Input<Boolean> disableDefaultCni;
 
     public Input<Boolean> getDisableDefaultCni() {
-        return Input.ofNullable(this.disableDefaultCni);
+        return this.disableDefaultCni == null ? Input.empty() : this.disableDefaultCni;
     }
 
     @InputImport(name="ipFamily")
     private final @Nullable Input<String> ipFamily;
 
     public Input<String> getIpFamily() {
-        return Input.ofNullable(this.ipFamily);
+        return this.ipFamily == null ? Input.empty() : this.ipFamily;
     }
 
     @InputImport(name="kubeProxyMode")
     private final @Nullable Input<String> kubeProxyMode;
 
     public Input<String> getKubeProxyMode() {
-        return Input.ofNullable(this.kubeProxyMode);
+        return this.kubeProxyMode == null ? Input.empty() : this.kubeProxyMode;
     }
 
     @InputImport(name="podSubnet")
     private final @Nullable Input<String> podSubnet;
 
     public Input<String> getPodSubnet() {
-        return Input.ofNullable(this.podSubnet);
+        return this.podSubnet == null ? Input.empty() : this.podSubnet;
     }
 
     @InputImport(name="serviceSubnet")
     private final @Nullable Input<String> serviceSubnet;
 
     public Input<String> getServiceSubnet() {
-        return Input.ofNullable(this.serviceSubnet);
+        return this.serviceSubnet == null ? Input.empty() : this.serviceSubnet;
     }
 
     public ClusterKindConfigNetworkingGetArgs(
@@ -82,6 +82,16 @@ public final class ClusterKindConfigNetworkingGetArgs extends io.pulumi.resource
         this.kubeProxyMode = kubeProxyMode;
         this.podSubnet = podSubnet;
         this.serviceSubnet = serviceSubnet;
+    }
+
+    private ClusterKindConfigNetworkingGetArgs() {
+        this.apiServerAddress = Input.empty();
+        this.apiServerPort = Input.empty();
+        this.disableDefaultCni = Input.empty();
+        this.ipFamily = Input.empty();
+        this.kubeProxyMode = Input.empty();
+        this.podSubnet = Input.empty();
+        this.serviceSubnet = Input.empty();
     }
 
     public static Builder builder() {

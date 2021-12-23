@@ -16,41 +16,41 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterKindConfigNodeGetArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterKindConfigNodeGetArgs Empty = ClusterKindConfigNodeGetArgs.builder().build();
+    public static final ClusterKindConfigNodeGetArgs Empty = new ClusterKindConfigNodeGetArgs();
 
     @InputImport(name="extraMounts")
     private final @Nullable Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeExtraMountGetArgs>> extraMounts;
 
     public Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeExtraMountGetArgs>> getExtraMounts() {
-        return Input.ofNullable(this.extraMounts);
+        return this.extraMounts == null ? Input.empty() : this.extraMounts;
     }
 
     @InputImport(name="extraPortMappings")
     private final @Nullable Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeExtraPortMappingGetArgs>> extraPortMappings;
 
     public Input<List<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigNodeExtraPortMappingGetArgs>> getExtraPortMappings() {
-        return Input.ofNullable(this.extraPortMappings);
+        return this.extraPortMappings == null ? Input.empty() : this.extraPortMappings;
     }
 
     @InputImport(name="image")
     private final @Nullable Input<String> image;
 
     public Input<String> getImage() {
-        return Input.ofNullable(this.image);
+        return this.image == null ? Input.empty() : this.image;
     }
 
     @InputImport(name="kubeadmConfigPatches")
     private final @Nullable Input<List<String>> kubeadmConfigPatches;
 
     public Input<List<String>> getKubeadmConfigPatches() {
-        return Input.ofNullable(this.kubeadmConfigPatches);
+        return this.kubeadmConfigPatches == null ? Input.empty() : this.kubeadmConfigPatches;
     }
 
     @InputImport(name="role")
     private final @Nullable Input<String> role;
 
     public Input<String> getRole() {
-        return Input.ofNullable(this.role);
+        return this.role == null ? Input.empty() : this.role;
     }
 
     public ClusterKindConfigNodeGetArgs(
@@ -64,6 +64,14 @@ public final class ClusterKindConfigNodeGetArgs extends io.pulumi.resources.Reso
         this.image = image;
         this.kubeadmConfigPatches = kubeadmConfigPatches;
         this.role = role;
+    }
+
+    private ClusterKindConfigNodeGetArgs() {
+        this.extraMounts = Input.empty();
+        this.extraPortMappings = Input.empty();
+        this.image = Input.empty();
+        this.kubeadmConfigPatches = Input.empty();
+        this.role = Input.empty();
     }
 
     public static Builder builder() {

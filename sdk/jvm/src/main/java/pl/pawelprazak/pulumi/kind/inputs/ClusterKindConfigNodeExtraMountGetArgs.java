@@ -16,20 +16,20 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterKindConfigNodeExtraMountGetArgs extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterKindConfigNodeExtraMountGetArgs Empty = ClusterKindConfigNodeExtraMountGetArgs.builder().build();
+    public static final ClusterKindConfigNodeExtraMountGetArgs Empty = new ClusterKindConfigNodeExtraMountGetArgs();
 
     @InputImport(name="containerPath")
     private final @Nullable Input<String> containerPath;
 
     public Input<String> getContainerPath() {
-        return Input.ofNullable(this.containerPath);
+        return this.containerPath == null ? Input.empty() : this.containerPath;
     }
 
     @InputImport(name="hostPath")
     private final @Nullable Input<String> hostPath;
 
     public Input<String> getHostPath() {
-        return Input.ofNullable(this.hostPath);
+        return this.hostPath == null ? Input.empty() : this.hostPath;
     }
 
     public ClusterKindConfigNodeExtraMountGetArgs(
@@ -37,6 +37,11 @@ public final class ClusterKindConfigNodeExtraMountGetArgs extends io.pulumi.reso
         @Nullable Input<String> hostPath) {
         this.containerPath = containerPath;
         this.hostPath = hostPath;
+    }
+
+    private ClusterKindConfigNodeExtraMountGetArgs() {
+        this.containerPath = Input.empty();
+        this.hostPath = Input.empty();
     }
 
     public static Builder builder() {

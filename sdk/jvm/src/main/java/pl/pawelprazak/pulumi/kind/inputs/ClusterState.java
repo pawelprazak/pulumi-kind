@@ -16,76 +16,76 @@ import pl.pawelprazak.pulumi.kind.Utilities;
 
 public final class ClusterState extends io.pulumi.resources.ResourceArgs {
 
-    public static final ClusterState Empty = ClusterState.builder().build();
+    public static final ClusterState Empty = new ClusterState();
 
     @InputImport(name="clientCertificate")
     private final @Nullable Input<String> clientCertificate;
 
     public Input<String> getClientCertificate() {
-        return Input.ofNullable(this.clientCertificate);
+        return this.clientCertificate == null ? Input.empty() : this.clientCertificate;
     }
 
     @InputImport(name="clientKey")
     private final @Nullable Input<String> clientKey;
 
     public Input<String> getClientKey() {
-        return Input.ofNullable(this.clientKey);
+        return this.clientKey == null ? Input.empty() : this.clientKey;
     }
 
     @InputImport(name="clusterCaCertificate")
     private final @Nullable Input<String> clusterCaCertificate;
 
     public Input<String> getClusterCaCertificate() {
-        return Input.ofNullable(this.clusterCaCertificate);
+        return this.clusterCaCertificate == null ? Input.empty() : this.clusterCaCertificate;
     }
 
     @InputImport(name="endpoint")
     private final @Nullable Input<String> endpoint;
 
     public Input<String> getEndpoint() {
-        return Input.ofNullable(this.endpoint);
+        return this.endpoint == null ? Input.empty() : this.endpoint;
     }
 
     @InputImport(name="kindConfig")
     private final @Nullable Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigGetArgs> kindConfig;
 
     public Input<pl.pawelprazak.pulumi.kind.inputs.ClusterKindConfigGetArgs> getKindConfig() {
-        return Input.ofNullable(this.kindConfig);
+        return this.kindConfig == null ? Input.empty() : this.kindConfig;
     }
 
     @InputImport(name="kubeconfig")
     private final @Nullable Input<String> kubeconfig;
 
     public Input<String> getKubeconfig() {
-        return Input.ofNullable(this.kubeconfig);
+        return this.kubeconfig == null ? Input.empty() : this.kubeconfig;
     }
 
     @InputImport(name="kubeconfigPath")
     private final @Nullable Input<String> kubeconfigPath;
 
     public Input<String> getKubeconfigPath() {
-        return Input.ofNullable(this.kubeconfigPath);
+        return this.kubeconfigPath == null ? Input.empty() : this.kubeconfigPath;
     }
 
     @InputImport(name="name")
     private final @Nullable Input<String> name;
 
     public Input<String> getName() {
-        return Input.ofNullable(this.name);
+        return this.name == null ? Input.empty() : this.name;
     }
 
     @InputImport(name="nodeImage")
     private final @Nullable Input<String> nodeImage;
 
     public Input<String> getNodeImage() {
-        return Input.ofNullable(this.nodeImage);
+        return this.nodeImage == null ? Input.empty() : this.nodeImage;
     }
 
     @InputImport(name="waitForReady")
     private final @Nullable Input<Boolean> waitForReady;
 
     public Input<Boolean> getWaitForReady() {
-        return Input.ofNullable(this.waitForReady);
+        return this.waitForReady == null ? Input.empty() : this.waitForReady;
     }
 
     public ClusterState(
@@ -109,6 +109,19 @@ public final class ClusterState extends io.pulumi.resources.ResourceArgs {
         this.name = name;
         this.nodeImage = nodeImage;
         this.waitForReady = waitForReady;
+    }
+
+    private ClusterState() {
+        this.clientCertificate = Input.empty();
+        this.clientKey = Input.empty();
+        this.clusterCaCertificate = Input.empty();
+        this.endpoint = Input.empty();
+        this.kindConfig = Input.empty();
+        this.kubeconfig = Input.empty();
+        this.kubeconfigPath = Input.empty();
+        this.name = Input.empty();
+        this.nodeImage = Input.empty();
+        this.waitForReady = Input.empty();
     }
 
     public static Builder builder() {
