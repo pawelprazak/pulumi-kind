@@ -15,6 +15,7 @@ VERSION         := $(shell pulumictl get version)
 TESTPARALLELISM := 4
 
 WORKING_DIR     := $(shell pwd)
+PULUMI_ROOT		:= /opt/pulumi
 
 OS := $(shell uname)
 EMPTY_TO_AVOID_SED :=
@@ -120,8 +121,8 @@ clean::
 install_plugins::
 
 install_dotnet_sdk::
-	mkdir -p $(WORKING_DIR)/nuget
-	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
+	mkdir -p $(PULUMI_ROOT)/nuget
+	find . -name '*.nupkg' -print -exec cp -p {} $(PULUMI_ROOT)/nuget \;
 
 install_python_sdk::
 
